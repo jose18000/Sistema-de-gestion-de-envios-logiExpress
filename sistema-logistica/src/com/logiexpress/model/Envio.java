@@ -1,11 +1,16 @@
 package com.logiexpress.model;
 
 import com.logiexpress.enums.EstadoEnvio;
-public class Envio {
+import com.logiexpress.enums.Prioridad; // Añade esta línea
+import com.logiexpress.enums.TipoEnvio; // Importar TipoEnvio
+import java.time.LocalDate;  // Importar LocalDate
+import java.util.UUID;
+public abstract class Envio {
+    //Atributos
     public String id;
     public String origen;
     public String destino;
-    public double peso;
+    public double peso; //en kilogramos
     public Prioridad prioridad;
     public EstadoEnvio estado;
     public LocalDate fechaEnvio;
@@ -15,6 +20,7 @@ public class Envio {
         this.id = "";
     }
 
+    //Constructor
     public Envio(String id, String origen, String destino, double peso, Prioridad prioridad, EstadoEnvio estado,
             LocalDate fechaEnvio, TipoEnvio tipoEnvio) {
         this.id = id;
@@ -25,6 +31,22 @@ public class Envio {
         this.estado = estado;
         this.fechaEnvio = fechaEnvio;
         this.tipoEnvio = tipoEnvio;
+    }
+
+    // Métodos abstractos
+    abstract double calcularCosto();
+
+    abstract int calcularTiempoEntrega();
+
+    abstract String obtenerDetallesEspecificos();
+
+    //Métodos concretos
+    public String generarNumeroSeguimiento(){
+        return "ENV-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+    }
+
+    public void actualizarEstado(EstadoEnvio nuevoEstadoEnvio){
+        this.estado = nuevoEstadoEnvio;
     }
 
     public String getId() {
@@ -91,7 +113,5 @@ public class Envio {
         this.tipoEnvio = tipoEnvio;
     }
 
-    public double calcularCosto(){
-        double costo = 
-    }
+    
 }
