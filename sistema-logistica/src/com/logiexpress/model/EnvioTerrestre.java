@@ -57,7 +57,7 @@ public class EnvioTerrestre extends Envio {
     }
 
     @Override
-    double calcularCosto() {
+    public double calcularCosto() {
         // Costo base por kilómetro y peso
         double costoBase = (peso * 1000) + (distanciaKm * 50); // $1.000 por kg + $50 por km
 
@@ -75,7 +75,7 @@ public class EnvioTerrestre extends Envio {
     }
 
     @Override
-    int calcularTiempoEntrega() {
+    public int calcularTiempoEntrega() {
         // Estimación: 1 día por cada 500 km
         int dias = (int) Math.ceil(distanciaKm / 500);
 
@@ -88,7 +88,7 @@ public class EnvioTerrestre extends Envio {
     }
 
     @Override
-    String obtenerDetallesEspecificos() {
+    public String obtenerDetallesEspecificos() {
         return "Tipo de envío: Terrestre | Empresa: " + empresaTransporte +
                " | Distancia: " + distanciaKm + " km" +
                " | Costo: $" + calcularCosto() +
