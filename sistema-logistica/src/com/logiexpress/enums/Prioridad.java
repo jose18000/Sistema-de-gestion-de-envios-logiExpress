@@ -1,5 +1,6 @@
 package com.logiexpress.enums;
 
-public class Prioridad {
-
+public enum  Prioridad {
+    NORMAL,
+    EXPRESS
 }

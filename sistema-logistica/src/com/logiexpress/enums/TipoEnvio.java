@@ -1,5 +1,7 @@
 package com.logiexpress.enums;
 
-public class TipoEnvio {
-
+public enum  TipoEnvio {
+    TERRESTRE,
+    AEREO,
+    MARITIMO
 }
