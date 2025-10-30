@@ -34,11 +34,11 @@ public abstract class Envio {
     }
 
     // Métodos abstractos
-    abstract double calcularCosto();
+    public abstract double calcularCosto();
 
-    abstract int calcularTiempoEntrega();
+    public abstract int calcularTiempoEntrega();
 
-    abstract String obtenerDetallesEspecificos();
+    public abstract String obtenerDetallesEspecificos();
 
     //Métodos concretos
     public String generarNumeroSeguimiento(){

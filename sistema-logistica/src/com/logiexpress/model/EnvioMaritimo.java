@@ -50,7 +50,7 @@ public class EnvioMaritimo extends Envio {
     }
 
     @Override
-    double calcularCosto() {
+    public double calcularCosto() {
         double costo = peso * 2000; // $2.000 por kilogramo
         if (peso > 1000) {
             costo += 150000; // recargo contenedor
@@ -59,13 +59,13 @@ public class EnvioMaritimo extends Envio {
     }
 
     @Override
-    int calcularTiempoEntrega() {
+    public int calcularTiempoEntrega() {
         // 15–45 días, promedio de 30
         return 30;
     }
 
     @Override
-    String obtenerDetallesEspecificos() {
+    public String obtenerDetallesEspecificos() {
         return "Tipo de envío: Marítimo | Puerto destino: " + puertoDestino +
             " | Costo: $" + calcularCosto() +
             " | Tiempo estimado: " + calcularTiempoEntrega() + " días";

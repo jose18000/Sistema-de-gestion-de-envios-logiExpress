@@ -44,7 +44,7 @@ public class EnvioAereo extends Envio {
     }
 
     @Override
-    double calcularCosto() {
+    public double calcularCosto() {
         double costo = peso * 15000; // $15.000 por kilogramo
 
         if (esInternacional) {
@@ -59,7 +59,7 @@ public class EnvioAereo extends Envio {
     }
 
     @Override
-    int calcularTiempoEntrega() {
+    public int calcularTiempoEntrega() {
         if (esInternacional) {
             return (3 + 7) / 2; // promedio de 5 días
         } else {
@@ -68,7 +68,7 @@ public class EnvioAereo extends Envio {
     }
 
     @Override
-    String obtenerDetallesEspecificos() {
+    public String obtenerDetallesEspecificos() {
         return "Tipo de envío: Aéreo | Internacional: " + (esInternacional ? "Sí" : "No") +
             " | Costo: $" + calcularCosto() +
             " | Tiempo estimado: " + calcularTiempoEntrega() + " días";
